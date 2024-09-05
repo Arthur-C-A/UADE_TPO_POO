@@ -1,6 +1,15 @@
 import java.util.ArrayList;
 
 public class Main {
+    /*Usamos un metodo auxiliar para asignar un jefe a un proyecto, pero tambien podriamos haber modificado la cclase Jefe para que tenga una variable tipo Proyecto. Asi:
+        public class Jefe {
+        public int codigo;
+        private String nombre;
+        private String direccion;
+        private int telefono;
+        private int dni;
+        private Proyecto proyectoAsignado;
+     */
     public static void asignarJefeAProyecto(Proyecto proyecto, Jefe jefe, ArrayList<String> jefeYaAsignado,  ArrayList<Integer> proyConJefeYaAsignado) {
         /* Paso por parametro:
         - Proyecto al cual le quiero asignaar un jefe
