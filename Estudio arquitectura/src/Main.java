@@ -43,8 +43,6 @@ public class Main {
 
 
     public static void main(String[] args) {
-        //Lista con nombres de jefes
-        ArrayList<String> nombreEnUso = new ArrayList<>();
         //Lista con jefes asignadaos
         ArrayList<String> jefeYaAsignado = new ArrayList<>();
         //Lista con proyectos con jefes asignadaos
@@ -56,16 +54,16 @@ public class Main {
 
         //Paso de creacion de jefes.
         // Verificación antes de crear el jefe
-        if (!verificarExistenciaNombre("Javier", nombreEnUso)) {
+        if (!verificarExistenciaNombre("Javier", jefeYaAsignado)) {
             Jefe jefe1 = new Jefe(1, "Javier", "Monserrat", 12354687, 45798658);
-            nombreEnUso.add(jefe1.getNombre()); // Agregar nombre a la lista
+            jefeYaAsignado.add(jefe1.getNombre()); // Agregar nombre a la lista
             //asignacion del jefe
             asignarJefeAProyecto(proyecto1, jefe1, jefeYaAsignado,proyConJefeYaAsignado);
 
         }
-        if (!verificarExistenciaNombre("Lucas", nombreEnUso)) {
+        if (!verificarExistenciaNombre("Lucas", jefeYaAsignado)) {
             Jefe jefe2 = new Jefe(2, "Lucas", "Lima", 1234589, 45879658);
-            nombreEnUso.add(jefe2.getNombre()); // Agregar nombre a la lista
+            jefeYaAsignado.add(jefe2.getNombre()); // Agregar nombre a la lista
             //asignacion del jefe
             asignarJefeAProyecto(proyecto2, jefe2, jefeYaAsignado,proyConJefeYaAsignado);
 
