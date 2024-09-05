@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
 public class Main {
-    public static void asignarJefeAProyecto(Proyecto proyecto, Jefe jefe, ArrayList<String> jefeYaAsignado,  ArrayList<Object> proyConJefeYaAsignado) {
+    public static void asignarJefeAProyecto(Proyecto proyecto, Jefe jefe, ArrayList<String> jefeYaAsignado,  ArrayList<Integer> proyConJefeYaAsignado) {
         /* Paso por parametro:
         - Proyecto al cual le quiero asignaar un jefe
         - El jefe a asignar
         - Array que contiene los jefes ya asignaados
+        - Array que contiene el codigo del proyecto
         */
         String jefeNombre = jefe.getNombre();
         int codigoProyecto = proyecto.getCodigo();
@@ -38,7 +39,7 @@ public class Main {
         //Lista con jefes asignadaos
         ArrayList<String> jefeYaAsignado = new ArrayList<>();
         //Lista con proyectos con jefes asignadaos
-        ArrayList<Object> proyConJefeYaAsignado = new ArrayList<>();
+        ArrayList<Integer> proyConJefeYaAsignado = new ArrayList<>();
 
         Proyecto proyecto1 = new Proyecto(123, "Proyecto1");
         Proyecto proyecto2 = new Proyecto(456, "Proyecto2");
