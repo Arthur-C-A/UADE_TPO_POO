@@ -41,7 +41,7 @@ public class Main {
 public static void main(String[] args) {
     // Crear el JFrame
     JFrame frame = new JFrame("Login");
-    frame.setSize(400, 300); // Ajustar tamaño
+    frame.setSize(400, 300); //  tamaño
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setLayout(null); // Usar null para posicionar los componentes manualmente
 
@@ -88,7 +88,7 @@ public static void main(String[] args) {
                 return; // Salir si hay caracteres no válidos
             }
 
-            // Crear el jugador según la carrera ingresada
+            // Crear el jugador según la carrera ingresada. Lo creamos primero haciendolo null por si despues la carrera ingresada no es valida.
             Jugador pj1 = null;
 
             if (carrera.equalsIgnoreCase("Ingenieria")) {
@@ -113,8 +113,4 @@ public static void main(String[] args) {
     frame.setVisible(true);
 }
 }
-
-
-
-
  */
