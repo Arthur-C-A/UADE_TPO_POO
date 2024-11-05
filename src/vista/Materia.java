@@ -1,6 +1,8 @@
 package vista;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Font;
 
 public class Materia {
     private String nombre;
@@ -10,6 +12,7 @@ public class Materia {
     private int alto;
     private int velocidad;
     private Color color;
+    private static final int VELOCIDAD_MAXIMA = 10;
 
     public Materia(String nombre, int posicionX, int posicionY, int velocidad) {
         this.nombre = nombre;
@@ -17,7 +20,7 @@ public class Materia {
         this.posicionY = posicionY;
         this.ancho = 100;
         this.alto = 30;
-        this.velocidad = velocidad;
+        this.velocidad = Math.min(velocidad, VELOCIDAD_MAXIMA);
         this.color = new Color((int)(Math.random() * 0x1000000));
     }
 
@@ -26,7 +29,19 @@ public class Materia {
     }
 
     public void aumentarVelocidad() {
-        this.velocidad += 1;
+        this.velocidad = Math.min(this.velocidad + 1, VELOCIDAD_MAXIMA);
+    }
+
+    public void dibujar(Graphics2D g2d) {
+        g2d.setColor(color);
+        g2d.fillRect(posicionX, posicionY, ancho, alto);
+        g2d.setColor(Color.BLACK);
+        g2d.setFont(new Font("Arial", Font.PLAIN, 12));
+        g2d.drawString(nombre, posicionX + 5, posicionY + 20);
+    }
+
+    public boolean fueraDePantalla() {
+        return posicionX + ancho < 0;
     }
 
     public String getNombre() {
@@ -55,5 +70,9 @@ public class Materia {
 
     public void setPosicionX(int posicionX) {
         this.posicionX = posicionX;
+    }
+
+    public int getVelocidad() {
+        return velocidad;
     }
 }

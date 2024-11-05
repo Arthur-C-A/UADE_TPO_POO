@@ -19,7 +19,7 @@ public class Estudiante {
         this.materiasAprobadas = new java.util.ArrayList<>();
         this.cantidadAplazos = 0;
         this.anio = 1;
-        this.velocidadAlumno = 5;
+        this.velocidadAlumno = 4;
         this.posicionX = 0;
         this.posicionY = 0;
     }
@@ -31,12 +31,6 @@ public class Estudiante {
 
     public void renderizarMonoChino(Graphics g) {
         g.drawImage(imagen, posicionX, posicionY, 30, 30, null);
-    }
-
-    public void agregarMateriaAprobada(String materia) {
-        if (!materiasAprobadas.contains(materia)) {
-            this.materiasAprobadas.add(materia);
-        }
     }
 
     public String getCarreraNombre() {
@@ -65,10 +59,6 @@ public class Estudiante {
 
     public boolean finCarrera() {
         return getCantidadMateriasAprobadas() + cantidadAplazos >= getTotalMaterias();
-    }
-
-    public void aumentarAnio() {
-        this.anio++;
     }
 
     public void avanzarAnio() {
