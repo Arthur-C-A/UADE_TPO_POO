@@ -6,16 +6,16 @@ import java.util.List;
 public class Licenciatura extends Carrera {
     private final String[] materiasPropiasLicenciatura = {
             "Marketing",
-            "Matemática Discreta",
-            "Testing de Aplicaciones",
-            "Fundamentos de Economía",
-            "Gestión de Personas en Organizaciones de Tecnología",
-            "Diseño y Análisis de Algoritmos",
-            "Dirección de Proyectos de Tecnología",
-            "Liderazgo y Negociación",
-            "Examen de Inglés",
-            "Seminario de Gestión de Tecnología",
-            "Negocios Tecnológicos"
+            "Matemática_Dis",
+            "Testing",
+            "Fundamentos_Economía",
+            "Gestión de Personas_Tec.",
+            "Diseño_Análisis_Algoritmos",
+            "Dirección_Proyectos_Tec.",
+            "Liderazgo_Negociación",
+            "Examen_Inglés",
+            "Seminario_Gestión_Tec.",
+            "Negocios_Tecnológicos"
     };
 
     public Licenciatura() {

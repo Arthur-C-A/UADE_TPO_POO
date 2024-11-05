@@ -5,10 +5,10 @@ import java.util.List;
 
 public class Tecnicatura extends Carrera {
     private final String[] materiasPropiasTecnicatura = {
-            "Testing de Aplicaciones",
-            "Optativa 1 (Marketing Digital)",
-            "Trabajo Integrador Final",
-            "Optativa 2 (Gestión de Proyectos)"
+            "Testing_app",
+            "Optativa_1(Marketing Digital)",
+            "Trab_Integrador_Final",
+            "Optativa_2(Gestión_Proyectos)"
     };
 
     public Tecnicatura() {
