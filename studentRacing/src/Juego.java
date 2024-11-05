@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.HashSet;
 
+
 public class Juego extends JPanel implements ActionListener, KeyListener {
     private Estudiante estudiante;
     private ArrayList<Materia> materias;
@@ -20,11 +21,58 @@ public class Juego extends JPanel implements ActionListener, KeyListener {
     private boolean nivelCompletado;
     private int velocidadBase = 2;
 
+    private JTextField nombreText;
+    private JTextField apellidoText;
+    private JComboBox<String> carreraComboBox;
+
     public Juego() {
         setPreferredSize(new Dimension(panelWidth, panelHeight));
         setBackground(Color.WHITE);
         setFocusable(true);
         addKeyListener(this);
+
+
+
+        // Crear el panel para la entrada de datos
+        JPanel panelEntrada = new JPanel(new GridLayout(2, 2, 10, 10));
+
+        // Etiquetas y campos para nombre y carrera
+        JLabel labelNombre = new JLabel("Nombre:");
+        JTextField campoNombre = new JTextField();
+        JLabel labelCarrera = new JLabel("Carrera:");
+        String[] carreras = {"Ingeniería", "Licenciatura", "Tecnicatura"};
+        JComboBox<String> comboCarrera = new JComboBox<>(carreras);
+
+        // Añadir los componentes al panel
+        panelEntrada.add(labelNombre);
+        panelEntrada.add(campoNombre);
+        panelEntrada.add(labelCarrera);
+        panelEntrada.add(comboCarrera);
+
+        // Mostrar el panel en un JOptionPane para obtener los datos
+        int resultado = JOptionPane.showConfirmDialog(
+                null,
+                panelEntrada,
+                "Login",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+
+        // Verificar si el usuario presionó "OK"
+        if (resultado == JOptionPane.OK_OPTION) {
+            String nombreEstudiante = campoNombre.getText();
+            String carreraSeleccionada = (String) comboCarrera.getSelectedItem();
+
+            // Validar que el nombre no esté vacío
+            if (nombreEstudiante.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un nombre para continuar.");
+                System.exit(0); // Salir del juego si no hay nombre
+            }
+        }
+
+
+
+
 
         estudiante = new Estudiante(new Ingenieria()); // Puedes cambiar a Licenciatura o Tecnicatura
         materias = new ArrayList<>();
@@ -183,6 +231,7 @@ public class Juego extends JPanel implements ActionListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {}
+
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
