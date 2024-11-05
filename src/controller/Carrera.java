@@ -9,27 +9,27 @@ public abstract class Carrera {
     private int aplazosMaximos;
 
     protected final String[] materiasGenerales = {
-            "Introducción a la Algoritmia",
-            "Sistemas de Información I",
-            "Arquitectura de Computadores",
-            "Diseño y Desarrollo Web",
-            "Algoritmos y Estructuras de Datos I",
-            "Sistemas de Información II",
+            "Introd_Algoritmia",
+            "Sistemas_Información_I",
+            "Arq_Computadores",
+            "Diseño_Desarrollo Web",
+            "Algoritmos_Est_Datos I",
+            "Sistemas_Información II",
             "Sistemas Operativos",
-            "Redes de Datos",
-            "Paradigma Orientado a Objetos",
-            "Ingeniería de Datos I",
-            "Aplicaciones Interactivas",
-            "Proceso de Desarrollo de Software",
-            "Desarrollo de Aplicaciones I",
-            "Probabilidad y Estadística",
-            "Seguridad e Integridad de la Información",
-            "Ingeniería de Datos II",
-            "Desarrollo de Aplicaciones II",
-            "Ciencia de Datos",
-            "Evaluación de Proyectos de Tecnología",
+            "Redes_Datos",
+            "POO",
+            "Ingeniería_Datos I",
+            "App_Interactivas",
+            "Proceso_Desarrollo_Software",
+            "Desarrollo_Aplicaciones I",
+            "Probabilidad_Estadística",
+            "Seg_Integridad_Información",
+            "Ingeniería_Datos II",
+            "Desarrollo_App II",
+            "Ciencia_Datos",
+            "Eval_Proyectos_Tecnología",
             "Tendencias Tecnológicas",
-            "Derecho Informático"
+            "Derecho_Informático"
     };
 
     public Carrera(String nombreCarrera, int duracionCarrera, int aplazoMaximo) {
