@@ -6,9 +6,9 @@ import java.util.List;
 public class Ingenieria extends Carrera {
     private final String[] materiasPropiasIngenieria = {
             "Fund_Informática",
-            "Pensamiento_Crít_Com.",
+            "Pensmto_Crít_Com.",
             "Teoría_Sistemas",
-            "Element_Álg_Geometr",
+            "Element_Álg_Geom",
             "Fund_Química",
             "Sist_Represent",
             "Matemática_Dis",
@@ -20,7 +20,7 @@ public class Ingenieria extends Carrera {
             "Teleinfo_Redes",
             "Física II",
             "Teoría_Computación",
-            "Modelado_Simulación",
+            "Modldo_Simulación",
             "Inteligencia_Artif",
             "Tec_Medio_Ambiente",
             "Optativa 1 (Diseño de Moda)",
