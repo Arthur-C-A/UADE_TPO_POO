@@ -8,14 +8,14 @@ public class Licenciatura extends Carrera {
             "Marketing",
             "Matemática_Dis",
             "Testing",
-            "Fundamentos_Economía",
-            "Gestión de Personas_Tec.",
-            "Diseño_Análisis_Algoritmos",
-            "Dirección_Proyectos_Tec.",
+            "Fund_Economía",
+            "Gestión_Per_Tec.",
+            "Dis_Análisis_Algorit",
+            "Dirección_Proy_Tec.",
             "Liderazgo_Negociación",
             "Examen_Inglés",
-            "Seminario_Gestión_Tec.",
-            "Negocios_Tecnológicos"
+            "Seminario_Gest_Tec.",
+            "Negocios_Tec"
     };
 
     public Licenciatura() {
