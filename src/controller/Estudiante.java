@@ -12,8 +12,9 @@ public class Estudiante {
     private int posicionX;
     private int posicionY;
     private Image imagen;
+    private String nombre;
 
-    public Estudiante(Carrera carrera) {
+    public Estudiante(Carrera carrera, String nombre) {
         this.imagen = new ImageIcon("src/resources/student_boy.png").getImage();
         this.carrera = carrera;
         this.materiasAprobadas = new java.util.ArrayList<>();
@@ -22,6 +23,7 @@ public class Estudiante {
         this.velocidadAlumno = 4;
         this.posicionX = 0;
         this.posicionY = 0;
+        this.nombre = nombre;
     }
 
     public void moverJugador(int posX, int posY) {
@@ -92,5 +94,7 @@ public class Estudiante {
     public int getVelocidadAlumno() {
         return velocidadAlumno;
     }
+
+    public String getNombre() { return nombre; }
 
 }

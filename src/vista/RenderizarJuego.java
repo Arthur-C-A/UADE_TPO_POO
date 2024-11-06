@@ -28,12 +28,70 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
     private static final int INTERVALO_MATERIA_MAX = 1000; // 1 seg
 
     public RenderizarJuego() {
+
+        // Crear el panel para la entrada de datos
+        JPanel panelEntrada = new JPanel(new GridLayout(2, 2, 10, 10));
+
+        // Etiquetas y campos para nombre y carrera
+        JLabel labelNombre = new JLabel("Nombre:");
+        JTextField campoNombre = new JTextField();
+        JLabel labelCarrera = new JLabel("Carrera:");
+        String[] carreras = {"Ingeniería", "Licenciatura", "Tecnicatura"};
+        JComboBox<String> comboCarrera = new JComboBox<>(carreras);
+
+        // Añadir los componentes al panel
+        panelEntrada.add(labelNombre);
+        panelEntrada.add(campoNombre);
+        panelEntrada.add(labelCarrera);
+        panelEntrada.add(comboCarrera);
+
+        // Mostrar el panel en un JOptionPane para obtener los datos
+        int resultado = JOptionPane.showConfirmDialog(
+                null,
+                panelEntrada,
+                "Login",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE
+        );
+
+        // Verificar si el usuario presionó "OK"
+        if (resultado == JOptionPane.OK_OPTION) {
+            String nombreEstudiante = campoNombre.getText();
+            String carreraSeleccionada = (String) comboCarrera.getSelectedItem();
+
+            // Validar que el nombre no esté vacío
+            if (nombreEstudiante.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un nombre para continuar.");
+                System.exit(0); // Salir del juego si no hay nombre
+            }
+
+            // Crear la carrera según la selección del usuario
+            Carrera carrera;
+            switch (carreraSeleccionada) {
+                case "Ingeniería":
+                    carrera = new Ingenieria();
+                    break;
+                case "Licenciatura":
+                    carrera = new Licenciatura();
+                    break;
+                case "Tecnicatura":
+                    carrera = new Tecnicatura();
+                    break;
+                default:
+                    carrera = new Ingenieria(); // Predeterminado
+            }
+            estudiante = new Estudiante(carrera, nombreEstudiante);
+        } else {
+            System.exit(0);
+        }
+
+
         setPreferredSize(new Dimension(panelWidth, panelHeight));
         setBackground(Color.WHITE);
         setFocusable(true);
         addKeyListener(this);
 
-        estudiante = new Estudiante(new Ingenieria()); // Puedes cambiar a Licenciatura o Tecnicatura
+        //estudiante = new Estudiante(new Ingenieria()); // Puedes cambiar a Licenciatura o Tecnicatura
         materias = new ArrayList<>();
         nivelActual = estudiante.getAnio();
         juegoTerminado = false;
@@ -109,7 +167,7 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
             if (estudiante.getCantidadAplazos() >= estudiante.getCarrera().getAplazosMaximos()) {
                 g2d.drawString("¡Juego Terminado! Aplazos Excedidos", panelWidth / 2 - 200, panelHeight / 2);
             } else {
-                g2d.drawString("¡Felicitaciones! ¡Graduado!", panelWidth / 2 - 150, panelHeight / 2);
+                g2d.drawString("¡Felicitaciones " + estudiante.getNombre() + "! Graduado en " + estudiante.getCarrera().getNombreCarrera() + "!", panelWidth / 2 - 150, panelHeight / 2);
             }
         }
     }
