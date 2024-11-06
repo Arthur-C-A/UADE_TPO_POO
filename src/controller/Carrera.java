@@ -14,22 +14,22 @@ public abstract class Carrera {
             "Arq_Computadores",
             "Diseño_Des_Web",
             "Algorit_Est_Datos I",
-            "Sist_Información II",
+            "Sist_Info II",
             "Sist_Operativos",
             "Redes_Datos",
             "POO",
             "Ing_Datos I",
             "App_Interactivas",
-            "Proceso_Des_Software",
+            "Proceso_Des_SW",
             "Desarrollo_App I",
-            "Probabilidad_Estad",
-            "Seg_Integridad_Info",
+            "Prob_Estadistca",
+            "Seg_Integr_Info",
             "Ing_Datos II",
             "Desarrollo_App II",
             "Ciencia_Datos",
             "Eval_Proye_Tec",
             "Tendencias_Tec",
-            "Derecho_Informático"
+            "Dcho_Informático"
     };
 
     public Carrera(String nombreCarrera, int duracionCarrera, int aplazoMaximo) {
