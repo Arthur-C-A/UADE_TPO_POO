@@ -7,7 +7,7 @@ public class Tecnicatura extends Carrera {
     private final String[] materiasPropiasTecnicatura = {
             "Testing_app",
             "Optativa_1(Marketing Digital)",
-            "Trab_Integrador_Final",
+            "Trab_Intgr_Final",
             "Optativa_2(Gestión_Proyectos)"
     };
 
