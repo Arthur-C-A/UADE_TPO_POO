@@ -26,24 +26,58 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
     private int tiempoHastaProximaMateria;
     private static final int INTERVALO_MATERIA_MIN = 250; // 1/4 de seg
     private static final int INTERVALO_MATERIA_MAX = 1000; // 1 seg
+    private Image fondoImagen;
 
     public RenderizarJuego() {
+        fondoImagen = new ImageIcon("src/resources/uade.jpg").getImage();
 
         // Crear el panel para la entrada de datos
-        JPanel panelEntrada = new JPanel(new GridLayout(2, 2, 10, 10));
+        JPanel panelEntrada = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
 
-        // Etiquetas y campos para nombre y carrera
+                // Dibujar la imagen para cubrir todo el panel
+                g2d.drawImage(fondoImagen, 0, 0, getWidth(), getHeight(), this);
+            }
+        };
+        // Establecer el diseño a GridBagLayout y configurar dimensiones preferidas
+        panelEntrada.setLayout(new GridBagLayout());
+        panelEntrada.setPreferredSize(new Dimension(500, 300));
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10); // Márgenes alrededor de cada componente
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+// Etiqueta de nombre
         JLabel labelNombre = new JLabel("Nombre:");
+        labelNombre.setFont(new Font("Arial", Font.BOLD, 18));
+        gbc.gridx = 0; // Columna 0
+        gbc.gridy = 0; // Fila 0
+        panelEntrada.add(labelNombre, gbc);
+
+// Campo de texto para nombre
         JTextField campoNombre = new JTextField();
+        campoNombre.setFont(new Font("Arial", Font.PLAIN, 16));
+        gbc.gridx = 1; // Columna 1
+        gbc.gridy = 0; // Fila 0
+        gbc.weightx = 1.0; // Permitir que el campo nombre crezca
+        panelEntrada.add(campoNombre, gbc);
+
+// Etiqueta de carrera
         JLabel labelCarrera = new JLabel("Carrera:");
+        labelCarrera.setFont(new Font("Arial", Font.BOLD, 18));
+        gbc.gridx = 0; // Columna 0
+        gbc.gridy = 1; // Fila 1
+        panelEntrada.add(labelCarrera, gbc);
+
+// ComboBox para seleccionar carrera
         String[] carreras = {"Ingeniería", "Licenciatura", "Tecnicatura"};
         JComboBox<String> comboCarrera = new JComboBox<>(carreras);
-
-        // Añadir los componentes al panel
-        panelEntrada.add(labelNombre);
-        panelEntrada.add(campoNombre);
-        panelEntrada.add(labelCarrera);
-        panelEntrada.add(comboCarrera);
+        comboCarrera.setFont(new Font("Arial", Font.PLAIN, 16));
+        gbc.gridx = 1; // Columna 1
+        gbc.gridy = 1; // Fila 1
+        panelEntrada.add(comboCarrera, gbc);
 
         // Mostrar el panel en un JOptionPane para obtener los datos
         int resultado = JOptionPane.showConfirmDialog(
@@ -139,7 +173,7 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
 
-        // Dibujar META
+    // Dibujar META
         g2d.setColor(Color.RED);
         g2d.setFont(new Font("Arial", Font.BOLD, 12));
         g2d.drawString("META", panelWidth / 2 - 30, 30);
