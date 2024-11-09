@@ -32,6 +32,8 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
     private static final int INTERVALO_MATERIA_MAX = 1000; // 1 seg
     private Mapa mapa; // Modificado por Zoilo
     private Image fondoImagen;
+    private JButton botonReiniciar;
+
 
     public RenderizarJuego() {
 
@@ -39,6 +41,60 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
 
         fondoImagen = new ImageIcon("src/resources/uade.jpg").getImage();
 
+        setPreferredSize(new Dimension(panelWidth, panelHeight));
+        setBackground(Color.WHITE);
+        setFocusable(true);
+        addKeyListener(this);
+        mostrarLogin();
+
+        materias = new ArrayList<>();
+        nivelActual = estudiante.getAnio();
+        juegoTerminado = false;
+        rand = new Random();
+
+        iniciarNivel();
+        reproducirMusica();
+
+        timer = new Timer(20, this);
+        timer.start();
+
+        setLayout(null);
+        botonReiniciar = new JButton("Reiniciar");
+        botonReiniciar.setFont(new Font("Tiny5", Font.BOLD, 16));
+        botonReiniciar.setBounds(650, 20, 120, 40);  // Ajusta la posición y tamaño como desees
+        botonReiniciar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                reiniciarJuego();
+            }
+        });
+        add(botonReiniciar);
+
+    }
+
+    private void reiniciarJuego() {
+        // Guardar los datos en el historial
+        guardarHistorialGraduado();
+
+        // Cerrar la ventana actual
+        JFrame ventanaActual = (JFrame) SwingUtilities.getWindowAncestor(this);  // Obtiene el JFrame que contiene el panel actual
+        if (ventanaActual != null) {
+            ventanaActual.dispose();  // Cierra la ventana
+        }
+
+        // Crear una nueva instancia de RenderizarJuego
+        RenderizarJuego nuevoJuego = new RenderizarJuego();
+
+        // Crear un nuevo JFrame para la nueva instancia del juego
+        JFrame nuevaVentana = new JFrame("UADE STUDENT RACE");
+        nuevaVentana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        nuevaVentana.add(nuevoJuego);  // Agregar el nuevo panel de juego
+        nuevaVentana.pack();  // Ajusta el tamaño según el panel
+        nuevaVentana.setLocationRelativeTo(null);
+        nuevaVentana.setVisible(true);  // Mostrar la nueva ventana
+    }
+
+
+    private void mostrarLogin() {
         // Crear el panel para la entrada de datos
         JPanel panelEntrada = new JPanel() {
             @Override
@@ -56,6 +112,8 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10); // Márgenes alrededor de cada componente
         gbc.fill = GridBagConstraints.HORIZONTAL;
+
+
 
 // Etiqueta de nombre
         JLabel labelNombre = new JLabel("Nombre:");
@@ -128,22 +186,9 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
         }
 
 
-        setPreferredSize(new Dimension(panelWidth, panelHeight));
-        setBackground(Color.WHITE);
-        setFocusable(true);
-        addKeyListener(this);
-
-        materias = new ArrayList<>();
-        nivelActual = estudiante.getAnio();
-        juegoTerminado = false;
-        rand = new Random();
-
-        iniciarNivel();
-        reproducirMusica();
-
-        timer = new Timer(20, this);
-        timer.start();
     }
+
+
 
     private void reproducirMusica() {
         try {
@@ -190,6 +235,7 @@ public class RenderizarJuego extends JPanel implements ActionListener, KeyListen
         for (Materia materia : materias) {
             materia.dibujar(g2d);
         }
+
 
         // Información visible
         g2d.setColor(Color.WHITE);
