@@ -1,0 +1,4 @@
+Nombre: Juan
+Apellido: Pérez
+Carrera: Ingeniería en Informática
+-----------------------------

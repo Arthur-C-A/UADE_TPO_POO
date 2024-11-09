@@ -1,0 +1,20 @@
+Nombre: Lautaro
+Carrera: Ingeniería en Informática
+Aplazos: 1
+Duración de la carrera: 5 años
+--------------------------
+Nombre: Matias
+Carrera: Licenciatura en Gestión IT
+Aplazos: 0
+Duración de la carrera: 4 años
+--------------------------
+Nombre: Enzo
+Carrera: Ingeniería en Informática
+Aplazos: 0
+Duración de la carrera: 5 años
+--------------------------
+Nombre: Fransico
+Carrera: Ingeniería en Informática
+Aplazos: 1
+Duración de la carrera: 5 años
+--------------------------
