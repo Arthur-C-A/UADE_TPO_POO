@@ -128,3 +128,18 @@ Carrera: Ingeniería en Informática
 Aplazos: 0
 Duración de la carrera: 5 años
 --------------------------
+Nombre: adsa
+Carrera: Ingeniería en Informática
+Aplazos: 0
+Duración de la carrera: 5 años
+--------------------------
+Nombre: asd
+Carrera: Ingeniería en Informática
+Aplazos: 0
+Duración de la carrera: 5 años
+--------------------------
+Nombre: asd
+Carrera: Ingeniería en Informática
+Aplazos: 0
+Duración de la carrera: 5 años
+--------------------------
