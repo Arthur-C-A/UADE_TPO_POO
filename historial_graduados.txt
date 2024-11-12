@@ -1,0 +1,11 @@
+Nombre: Ash Blossom
+Carrera: Ingeniería en Informática
+Aplazos: 5
+Duración de la carrera: 5 años
+--------------------------
+Nombre: otpfiddlesticks
+Carrera: Ingeniería en Informática
+Duración de la carrera: 5 años
+Aplazos usados: 2 de 5
+Llegaste hasta el año: 6
+--------------------------
